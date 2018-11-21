@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 
-.logo, .home_button {
+.logo, .home_button, .logout {
     font-size: 50px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: rgb(2, 39, 39);
@@ -70,7 +70,7 @@ body {
     justify-content: space-evenly
 }
 
-.home_button a {
+.home_button a, .logout a{
     text-decoration: none;
 }
 
@@ -79,9 +79,10 @@ body {
     display: flex;
     background-color: rgb(202, 114, 114, 0.4);
     justify-content: space-around;
+    flex-wrap: wrap;
     border-radius: 20px;
 }
-.signup-form {
+.signup-form, .login-form {
     display: flex;
     flex-direction: column;
     width: 50vw;
@@ -101,7 +102,7 @@ input {
     border: none;
 }
 
-#signup {
+#signup, #login {
     text-align: center;
     font-size: 30px;
 }
@@ -124,6 +125,13 @@ button:hover{
     color: rgb(183, 224, 224);
 }
 
-.signup-form span {
+.signup-form span, .login-form span {
     margin-left: 28%;
+    /* text-align: center; */
+
+}
+
+.signup-form span a, .login-form span a {
+    color: rgb(122, 122, 202);
+    text-decoration: none;
 }
