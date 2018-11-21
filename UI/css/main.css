@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 
-.logo {
+.logo, .home_button {
     font-size: 50px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: rgb(2, 39, 39);
@@ -70,9 +70,60 @@ body {
     justify-content: space-evenly
 }
 
-/* @media screen and (max-width: 847) {
-    .body {
-        display: flex;
-        flex-direction: column;
-    }
-} */
+.home_button a {
+    text-decoration: none;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    background-color: rgb(202, 114, 114, 0.4);
+    justify-content: space-around;
+    border-radius: 20px;
+}
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    background-color: rgba(151, 43, 35, 0.4);
+    margin-top: 30px;
+    color: rgb(183, 224, 224);
+}
+
+input {
+    display: block;
+    width: 80%;
+    height: 20px;
+    padding: 7px;
+    margin-top: 9px;
+    margin-bottom: 4px;
+    margin-left: 8%;
+    border: none;
+}
+
+#signup {
+    text-align: center;
+    font-size: 30px;
+}
+
+label {
+    margin-left: 8%;
+}
+
+button {
+    width: 50%;
+    margin-left: 25%;
+    height: 40px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button:hover{
+    background-color: rgb(230, 21, 21);
+    color: rgb(183, 224, 224);
+}
+
+.signup-form span {
+    margin-left: 28%;
+}
