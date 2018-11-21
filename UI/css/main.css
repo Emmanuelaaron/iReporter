@@ -2,3 +2,77 @@ body {
     background-image: url(../images/sam-jotham-sutharson-633524-unsplash.jpg);
     background-size: 100%
 }
+
+.quote{
+    font-size: 5vw;
+    color: rgb(183, 224, 224);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+.logo {
+    font-size: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(2, 39, 39);
+    width: 250px;
+    text-align: center;
+    border-radius: 50px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+#blue {
+    color: rgb(122, 122, 202);
+}
+
+#yellow {
+    color: rgb(223, 223, 62);
+}
+
+#whitish {
+    color: rgb(183, 224, 224);
+}
+
+#green {
+    color: rgb(69, 190, 69);
+}
+
+.description {
+    width: 50vw;
+    color: rgb(166, 223, 223);
+    background-color: rgb(153, 105, 105, 0.4);
+    border-radius: 10px;
+    text-align: center;
+    margin: 15px;
+    padding: 50px;
+    margin-top: 35px
+}
+
+.login {
+    color: aqua;
+    width: 50vw;
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly
+}
+
+/* @media screen and (max-width: 847) {
+    .body {
+        display: flex;
+        flex-direction: column;
+    }
+} */
