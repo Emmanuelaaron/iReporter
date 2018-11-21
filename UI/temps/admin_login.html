@@ -4,10 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sign up</title>
+    <title>signin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
-    <script src="main.js"></script>
 </head>
 
 <body>
@@ -19,33 +18,30 @@
             <a href="../temps/start_page.html"><em><span id="whitish">A</span><span id="green">bo</span><span id="blue">u</span><span
                         id="yellow">t</span></em></a>
         </div>
+        <div class="logout">
+            <a href="../temps/signup_page.html"><em><span id="whitish">S</span><span id="green">ig</span><span id="blue">nu</span><span
+                        id="yellow">p</span></em></a>
+        </div>
     </div>
-    <div class="signup-form">
-        <div id="signup">Signup here</div>
+    <div class="login-form">
+        <div id="login">Admin Login</div>
+    
         <form>
             <div class="email">
                 <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="emmanuel@gmail.com" name="email" required>
-            </div>
-            <div class="firstname">
-                <label for="firstname"><b>First Name</b></label>
-                <input type="text" placeholder="Enter first name" name="firstname" required>
-            </div>
-            <div class="lastname">
-                <label for="lastname"><b>Last Name</b></label>
-                <input type="text" placeholder="Enter your last name" name="lastname" required>
+                <input type="email" placeholder="joe@go.ug" name="email" required>
             </div>
             <div class="password">
                 <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="secret" name="password" required>
+                <input type="password" placeholder="secret" required>
             </div>
             <div class="button">
                 <button type="submit" class="signupbtn">Sign Up</button>
             </div>
+            <span>If you're not an admin, please signin from <a href="../temps/signin_page.html">HERE</a></span>
 
+    
         </form>
-        <span>If you have an account, please login from <a href="../temps/signin_page.html">HERE</a></span>
-
     </div>
 
 </body>
