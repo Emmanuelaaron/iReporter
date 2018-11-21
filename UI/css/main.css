@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 
-.logo {
+.logo, .home_button {
     font-size: 50px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: rgb(2, 39, 39);
@@ -70,9 +70,14 @@ body {
     justify-content: space-evenly
 }
 
-/* @media screen and (max-width: 847) {
-    .body {
-        display: flex;
-        flex-direction: column;
-    }
-} */
+.home_button a {
+    text-decoration: none;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    background-color: rgb(202, 114, 114, 0.4);
+    justify-content: space-around;
+    border-radius: 20px;
+}
