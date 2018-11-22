@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 
-.logo, .home_button, .logout {
+.logo, .home_button, .logout, .logout_button {
     font-size: 4vw;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: rgb(2, 39, 39);
@@ -70,7 +70,7 @@ body {
     justify-content: space-evenly
 }
 
-.home_button a, .logout a{
+.home_button a, .logout a, .logout_button a{
     text-decoration: none;
 }
 
