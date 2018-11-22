@@ -11,14 +11,14 @@ body {
 }
 
 .logo, .home_button, .logout {
-    font-size: 50px;
+    font-size: 4vw;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: rgb(2, 39, 39);
-    width: 250px;
+    width: 20vw;
     text-align: center;
     border-radius: 50px;
-    margin-top: 35px;
-    margin-bottom: 35px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 #blue {
@@ -89,6 +89,7 @@ body {
     background-color: rgba(151, 43, 35, 0.4);
     margin-top: 30px;
     color: rgb(183, 224, 224);
+    margin-top: 10%;
 }
 
 input {
