@@ -222,10 +222,54 @@ h3 {
  }
 
  img {
-     width: 200px;
+     width: 100px;
+     height: 100px;
+     margin-right: 20px;
  }
 
- .user_details {
+ .user_details, .records {
     color: rgb(183, 224, 224);
 
  }
+
+ table {
+     width: 100%;
+     border-collapse: collapse;
+ }
+
+ tr :nth-child(even){
+     background-color: #6b5c4a;
+ }
+
+ .user_profile_body {
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     margin-top: 20px;
+     width: 100%;
+     background-color: rgb(202, 114, 114, 0.4);
+    }
+
+ td, th {
+    border: 1px solid #837171;
+    text-align: left;
+    padding: 8px;
+}
+
+.records {
+    margin: auto;
+    background-color: #42256e;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.user_details {
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+h2 {
+    text-align: center;
+}
