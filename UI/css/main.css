@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 
-.logo, .home_button, .logout, .logout_button {
+.logo, .home_button, .logout, .logout_button, .home {
     font-size: 4vw;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: rgb(2, 39, 39);
@@ -70,7 +70,7 @@ body {
     justify-content: space-evenly
 }
 
-.home_button a, .logout a, .logout_button a{
+.home_button a, .logout a, .logout_button a, .home a{
     text-decoration: none;
 }
 
@@ -197,7 +197,7 @@ h3 {
 
 .dropdown1{
     height: 5vh;
-    background: #e78515;
+    background: #a87d4b;
     width: 10vw;
     margin: 20px;
     text-align: center;
