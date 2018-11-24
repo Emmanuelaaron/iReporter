@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 
-.logo, .home_button, .logout, .logout_button {
+.logo, .home_button, .logout, .logout_button, .home, .profile {
     font-size: 4vw;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: rgb(2, 39, 39);
@@ -70,7 +70,7 @@ body {
     justify-content: space-evenly
 }
 
-.home_button a, .logout a, .logout_button a{
+.home_button a, .logout a, .logout_button a, .home a, .profile a{
     text-decoration: none;
 }
 
@@ -197,7 +197,7 @@ h3 {
 
 .dropdown1{
     height: 5vh;
-    background: #e78515;
+    background: #8a6943;
     width: 10vw;
     margin: 20px;
     text-align: center;
@@ -220,3 +220,81 @@ h3 {
      display: flex;
      justify-content: space-between;
  }
+
+ img {
+     width: 100px;
+     height: 100px;
+     margin-right: 20px;
+ }
+
+ .user_details, .records {
+    color: rgb(183, 224, 224);
+
+ }
+
+ table {
+     width: 100%;
+     border-collapse: collapse;
+ }
+
+ tr :nth-child(even){
+     background-color: #6b5c4a;
+ }
+
+ .user_profile_body {
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     margin-top: 20px;
+     width: 100%;
+     background-color: rgb(202, 114, 114, 0.4);
+    }
+
+ td, th {
+    border: 1px solid #837171;
+    text-align: left;
+    padding: 8px;
+}
+
+.records {
+    margin: auto;
+    background-color: #42256e;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.user_details {
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.users_records {
+    background-color: rgb(202, 114, 114, 0.4);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    color: rgb(183, 224, 224);
+
+
+}
+
+.user_contents {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form.search_record input[type="text"] {
+    padding: 10px;
+    width: 50%;
+    margin-left: 25vw;
+}
+
+
