@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 
-.logo, .home_button, .logout, .logout_button, .home {
+.logo, .home_button, .logout, .logout_button, .home, .profile {
     font-size: 4vw;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: rgb(2, 39, 39);
@@ -70,7 +70,7 @@ body {
     justify-content: space-evenly
 }
 
-.home_button a, .logout a, .logout_button a, .home a{
+.home_button a, .logout a, .logout_button a, .home a, .profile a{
     text-decoration: none;
 }
 
@@ -197,7 +197,7 @@ h3 {
 
 .dropdown1{
     height: 5vh;
-    background: #a87d4b;
+    background: #8a6943;
     width: 10vw;
     margin: 20px;
     text-align: center;
@@ -273,3 +273,28 @@ h3 {
 h2 {
     text-align: center;
 }
+
+.users_records {
+    background-color: rgb(202, 114, 114, 0.4);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    color: rgb(183, 224, 224);
+
+
+}
+
+.user_contents {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form.search_record input[type="text"] {
+    padding: 10px;
+    width: 50%;
+    margin-left: 25vw;
+}
+
+
