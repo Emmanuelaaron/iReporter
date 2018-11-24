@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 
-.logo, .home_button, .logout, .logout_button, .home, .profile {
+.logo, .home_button, .logout, .logout_button, .home, .profile, .admin {
     font-size: 4vw;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: rgb(2, 39, 39);
@@ -286,7 +286,7 @@ h2 {
 
 }
 
-.user_contents {
+.user_contents, .admin_lists {
     display: flex;
     flex-wrap: wrap;
 }
@@ -297,4 +297,20 @@ form.search_record input[type="text"] {
     margin-left: 25vw;
 }
 
+.admin_records{
+    color: rgb(183, 224, 224);
+    background-color: rgb(202, 114, 114, 0.4);
 
+}
+
+.admin_lists form button {
+    margin: auto;
+    width: 50px;
+    height: 25px;
+}
+
+.admin_records input {
+    width: 60%;
+    height: 30px;
+    margin: auto;
+}
