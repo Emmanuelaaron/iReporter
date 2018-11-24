@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 
-.logo, .home_button, .logout, .logout_button, .home, .profile {
+.logo, .home_button, .logout, .logout_button, .home, .profile, .admin {
     font-size: 4vw;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: rgb(2, 39, 39);
