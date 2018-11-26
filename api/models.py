@@ -1,15 +1,16 @@
 import datetime
 
 users = [
-    {
-        "id": 1,
-        "firstname": "Emmanuel",
-        "lastname": "Aaron",
-        "othernames": "isabirye",
-        "email": "emmanuelisabirye9@gmail.com",
-        "username": "sonibil",
-        "registered": 2018-11-16,
-    }
+    # {
+    #     "id": 1,
+    #     "firstname": "Emmanuel",
+    #     "lastname": "Aaron",
+    #     "othernames": "isabirye",
+    #     "email": "emmanuelisabirye9@gmail.com",
+    #     "password": "97ghfdc",
+    #     "username": "sonibil",
+    #     "registered": 2018-11-16,
+    # }
 ]
 
 incidents = [
@@ -40,10 +41,16 @@ class Users:
             "lastname": self.lastname,
             "othernames": self.othernames,
             "email": self.email,
+            "password": self.password,
             "username": self.username,
             "registered": datetime.date.today()
         }
         users.append(user)
+        return user
+
+    @staticmethod
+    def get_all_users():
+        return users
 
 class Incidents:
     def __init__(self, incidenceType, location, comment):
