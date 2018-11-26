@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     return "you're welcome to ireporter"
 
-@app.route("/signup", methods=["POST"])
+@app.route("/api/v1/signup", methods=["POST"])
 def signup_user():
     return UsersController.signupUser()
     
