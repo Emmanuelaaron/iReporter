@@ -15,7 +15,7 @@ users = [
 
 incidents = [
     {
-        "id": 1,
+        "user_id": 1,
         "createdOn": 2018-10-17,
         "incidenceType": "red flag",
         "location": "7652, 67656",
@@ -36,7 +36,7 @@ class Users:
     
     def signup(self):
         user = {
-            "id": len(users) + 1,
+            "user_id": len(users) + 1,
             "firstname": self.firstname,
             "lastname": self.lastname,
             "othernames": self.othernames,
@@ -62,16 +62,17 @@ class Incidents:
     def get_all_incidents():
         return incidents
 
-    def create_incidence(self, id):
+    def create_incidence(self, user_id):
         for user in users:
-            if user["id"] == id:
+            if user["user_id"] == user_id:
                 incident = {
                     "id": len(incidents) + 1,
                     "createdOn": datetime.date.today(),
                     "incidenceType": self.incidenceType,
                     "location": self.location,
                     "status": "draft",
-                    "comment": self.comment
+                    "comment": self.comment,
+                    "createdby": user_id
                 }
                 incidents.append(incident)
-                return incident
+            return incident
