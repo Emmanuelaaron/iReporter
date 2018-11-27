@@ -46,3 +46,22 @@ class UsersController:
                 })
         my_account = Users(firstname, lastname, othernames, email, password, username)
         return jsonify (my_account.signup()), 201
+
+class IncidentsController:
+
+    @staticmethod
+    def create_red_flag():
+        data = request.get_json()
+        incidenceType = data.get("incidenceType")
+        location = data.get("location")
+        comment = data.get("comment")
+        user_id = data.get("user_id")
+
+        for user in Users.get_all_users():
+            if user["user_id"] != user_id:
+                return jsonify({
+                    "message": "invalid user id"
+                }), 400
+        my_incident = Incidents(incidenceType, location, comment)
+        message = my_incident.create_incidence(user_id)
+        return jsonify(message)
