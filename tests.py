@@ -112,3 +112,22 @@ class TestUser(unittest.TestCase):
         self.assertEqual(reply["message"], "password is required!")
         self.assertEqual(resp.status_code, 400)
 
+    def test_signupuser_without_username(self):
+        user = dict(
+            firstname="donald",
+            lastname="ngiya",
+            othernames="Danny",
+            email="ngisd@gmail.com",
+            password="gjhfsf",
+            username=""
+        )
+
+        resp = app.test_client(self).post(
+            "api/v1/signup",
+            content_type="application/json",
+            data=json.dumps(user)
+        )
+        reply = json.loads(resp.data.decode())
+
+        self.assertEqual(reply["message"], "username is required!")
+        self.assertEqual(resp.status_code, 400)
