@@ -45,4 +45,4 @@ class UsersController:
                     "message": "email already exists!"
                 })
         my_account = Users(firstname, lastname, othernames, email, password, username)
-        return jsonify (my_account.signup())
+        return jsonify (my_account.signup()), 201
