@@ -46,7 +46,7 @@ class Users:
             "registered": datetime.date.today()
         }
         users.append(user)
-        return user
+        return "You've, signed up sucessfully", user
 
     @staticmethod
     def get_all_users():
