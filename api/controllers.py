@@ -13,27 +13,14 @@ class UsersController:
         email = data.get("email")
         password = data.get("password")
         username = data.get("username")
+
+        user_details = [firstname, lastname, email, password, username]
+        for detail in user_details:
+            if Validating_string.is_space(detail) or not Validating_string.characters(detail):
+                 return jsonify({
+                    "message": "All fields must be filled!"
+                    }), 400
         
-        if Validating_string.is_space(firstname) or not Validating_string.characters(firstname):
-            return jsonify({
-                "message": "firstname is required!"
-            }), 400
-        if Validating_string.is_space(lastname) or not Validating_string.characters(lastname):
-            return jsonify({
-                "message": "lastname is required!"
-            }), 400
-        if Validating_string.is_space(email) or not Validating_string.characters(email):
-            return jsonify({
-                "message": "email is required!"
-            }), 400
-        if Validating_string.is_space(password) or not Validating_string.characters(password):
-            return jsonify({
-                "message": "password is required!"
-            }), 400
-        if Validating_string.is_space(username) or not Validating_string.characters(username):
-            return jsonify({
-                "message": "username is required!"
-            }), 400
 
         for user in Users.get_all_users():
             if user["username"] == username:
