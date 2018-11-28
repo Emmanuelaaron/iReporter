@@ -56,6 +56,44 @@ class TestFlags(unittest.TestCase):
     def SetUp(self):
         self.tester = app.test_client(self)
 
+    def test_create_red_flag(self):
+        user = dict(
+            firstname="itui",
+            lastname="isa",
+            othernames="Danny",
+            email="ngiya@gam.com",
+            password="ghgdhgd",
+            username="emma"
+        )
+        resp = app.test_client(self).post(
+            "api/v1/signup", 
+            content_type="application/json",
+            data=json.dumps(user)
+        )
+
+        reply = json.loads(resp.data.decode())
+
+        self.assertIn("You've, signed up sucessfully", reply)
+        self.assertEqual(resp.status_code, 201)
+
+        incident = dict(
+        incidenceType = "Red flag",
+        location = "752, 67056",
+        comment = "corruption at icc",
+        user_id = 1
+
+        )
+        resp = app.test_client(self).post(
+            "api/v1/red-flags",
+            content_type="application/json",
+            data=json.dumps(incident)
+        )
+        reply = json.loads(resp.data.decode())
+
+        self.assertTrue(reply)
+        self.assertEqual(resp.status_code, 201)
+
+
     def test_create_red_flag_error(self):
         incident = dict(
         incidenceType = "Red flag",
@@ -71,14 +109,14 @@ class TestFlags(unittest.TestCase):
         )
         reply = json.loads(resp.data.decode())
 
-        self.assertIn(reply["message"], "user not found!")
+        self.assertEqual(reply["message"], "Incidence already captured!")
         self.assertEqual(resp.status_code, 400)
     
     def test_create_red_flag_with_blank_fieled(self):
         incident = dict(
         incidenceType = "",
         location = "752, 67056",
-        comment = "corruption at icc",
+        comment = "",
         user_id = 1
         )
         resp = app.test_client(self).post(
@@ -90,13 +128,11 @@ class TestFlags(unittest.TestCase):
         self.assertIn(reply["message"], "All fields must be filled!")
         self.assertEqual(resp.status_code, 400)
     
-    def test_get_all_red_flags_no_incidents(self):
+    def test_get_all_red_flags(self):
         resp = app.test_client(self).get(
             "api/v1/red-flags"
         )
         reply = json.loads(resp.data.decode())
-        self.assertIn("No incidents so far!", str(reply))
+        self.assertTrue(reply)
         self.assertEqual(resp.status_code, 201)
 
-    # def test_get_all_red_flags(self):
-        
