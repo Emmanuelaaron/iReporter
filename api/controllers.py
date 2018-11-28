@@ -76,4 +76,4 @@ class IncidentsController:
             return jsonify({
                 "message": "No incidents so far!"
             }), 201
-        return jsonify(Incidents.get_all_incidents())
+        return jsonify(Incidents.get_all_incidents()), 201
