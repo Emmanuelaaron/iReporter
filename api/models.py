@@ -14,14 +14,14 @@ users = [
 ]
 
 incidents = [
-    {
-        "user_id": 1,
-        "createdOn": 2018-10-17,
-        "incidenceType": "red flag",
-        "location": "7652, 67656",
-        "status": "resolved",
-        "comment": "corruption at icc"
-    }
+    # {
+    #     "user_id": 1,
+    #     "createdOn": 2018-10-17,
+    #     "incidenceType": "red flag",
+    #     "location": "7652, 67656",
+    #     "status": "resolved",
+    #     "comment": "corruption at icc"
+    # }
 ]
 
 
