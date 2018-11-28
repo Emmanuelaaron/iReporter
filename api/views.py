@@ -19,6 +19,7 @@ def create_red():
 @app.route("/api/v1/red-flags")
 def get_all_flags():
     return IncidentsController.get_all_red_flags()
-    
 
-
+@app.route("/api/v1/red-flags/<int:flag_id>")
+def get_specific_red_flag(flag_id):
+    return IncidentsController.get_specific_red_flag(flag_id)

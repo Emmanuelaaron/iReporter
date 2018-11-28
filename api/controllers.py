@@ -77,3 +77,16 @@ class IncidentsController:
                 "message": "No incidents so far!"
             }), 201
         return jsonify(Incidents.get_all_incidents()), 201
+
+    @staticmethod
+    def get_specific_red_flag(flag_id):
+        if len(Incidents.get_all_incidents()) == 0:
+            return jsonify({
+                "message": "No incidents!"
+            })
+        for incident in Incidents.get_all_incidents():
+            if incident["flag_id"] != flag_id:
+                return jsonify({
+                    "message": "Flag id does not exist!"
+                }), 400
+        return jsonify(incident), 201
