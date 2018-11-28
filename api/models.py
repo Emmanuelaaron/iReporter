@@ -66,7 +66,7 @@ class Incidents:
         for user in users:
             if user["user_id"] == user_id:
                 incident = {
-                    "id": len(incidents) + 1,
+                    "flag_id": len(incidents) + 1,
                     "createdOn": datetime.date.today(),
                     "incidenceType": self.incidenceType,
                     "location": self.location,
