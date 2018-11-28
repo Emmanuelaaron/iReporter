@@ -44,6 +44,23 @@ class IncidentsController:
         comment = data.get("comment")
         user_id = data.get("user_id")
 
+        incidents_details = [incidenceType, location, comment, user_id]
+        for incident in incidents_details:
+            if type(incident) is str:
+                if Validating_string.is_space(incident) or not Validating_string.characters(incident):
+                    return jsonify({
+                        "message": "All fields must be filled!"
+                        }), 400
+        if len(Users.get_all_users()) == 0:
+            return jsonify({
+                "message": "user not found!"
+            }), 400
+        for incident in incidents:
+            if incident["incidenceType"] == incidenceType and incident["location"] == location:
+                return jsonify({
+                    "message": "Incidence already captured!"
+                }), 400
+
         for user in Users.get_all_users():
             if user["user_id"] != user_id:
                 return jsonify({
@@ -51,4 +68,4 @@ class IncidentsController:
                 }), 400
         my_incident = Incidents(incidenceType, location, comment)
         message = my_incident.create_incidence(user_id)
-        return jsonify(message)
+        return jsonify(message), 201
