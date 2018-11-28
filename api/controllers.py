@@ -53,7 +53,7 @@ class IncidentsController:
                         }), 400
         if len(Users.get_all_users()) == 0:
             return jsonify({
-                "message": "user not found"
+                "message": "user not found!"
             }), 400
         for incident in incidents:
             if incident["incidenceType"] == incidenceType and incident["location"] == location:

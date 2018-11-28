@@ -51,3 +51,41 @@ class TestUser(unittest.TestCase):
         self.assertEqual(resp.status_code, 400)
         
     
+class TestFlags(unittest.TestCase):
+    
+    def SetUp(self):
+        self.tester = app.test_client(self)
+
+    def test_create_red_flag_error(self):
+        incident = dict(
+        incidenceType = "Red flag",
+        location = "752, 67056",
+        comment = "corruption at icc",
+        user_id = 1
+
+        )
+        resp = app.test_client(self).post(
+            "api/v1/red-flag",
+            content_type="application/json",
+            data=json.dumps(incident)
+        )
+        reply = json.loads(resp.data.decode())
+
+        self.assertIn(reply["message"], "user not found!")
+        self.assertEqual(resp.status_code, 400)
+    
+    def test_create_red_flag_with_blank_fieled(self):
+        incident = dict(
+        incidenceType = "",
+        location = "752, 67056",
+        comment = "corruption at icc",
+        user_id = 1
+        )
+        resp = app.test_client(self).post(
+            "api/v1/red-flag",
+            content_type="application/json",
+            data=json.dumps(incident)
+        )
+        reply = json.loads(resp.data.decode())
+        self.assertIn(reply["message"], "All fields must be filled!")
+        self.assertEqual(resp.status_code, 400)
