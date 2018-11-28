@@ -12,9 +12,13 @@ def index():
 def signup_user():
     return UsersController.signupUser()
 
-@app.route("/api/v1/red-flag", methods=["POST"])
+@app.route("/api/v1/red-flags", methods=["POST"])
 def create_red():
     return IncidentsController.create_red_flag()
+
+@app.route("/api/v1/red-flags")
+def get_all_flags():
+    return IncidentsController.get_all_red_flags()
     
 
 

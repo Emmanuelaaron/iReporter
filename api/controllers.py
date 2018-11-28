@@ -69,3 +69,11 @@ class IncidentsController:
         my_incident = Incidents(incidenceType, location, comment)
         message = my_incident.create_incidence(user_id)
         return jsonify(message), 201
+
+    @staticmethod
+    def get_all_red_flags():
+        if len(Incidents.get_all_incidents()) == 0:
+            return jsonify({
+                "message": "No incidents so far!"
+            }), 201
+        return jsonify(Incidents.get_all_incidents())

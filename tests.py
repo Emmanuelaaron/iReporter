@@ -65,7 +65,7 @@ class TestFlags(unittest.TestCase):
 
         )
         resp = app.test_client(self).post(
-            "api/v1/red-flag",
+            "api/v1/red-flags",
             content_type="application/json",
             data=json.dumps(incident)
         )
@@ -82,10 +82,11 @@ class TestFlags(unittest.TestCase):
         user_id = 1
         )
         resp = app.test_client(self).post(
-            "api/v1/red-flag",
+            "api/v1/red-flags",
             content_type="application/json",
             data=json.dumps(incident)
         )
         reply = json.loads(resp.data.decode())
         self.assertIn(reply["message"], "All fields must be filled!")
         self.assertEqual(resp.status_code, 400)
+    
