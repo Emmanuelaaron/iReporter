@@ -23,3 +23,7 @@ def get_all_flags():
 @app.route("/api/v1/red-flags/<int:flag_id>")
 def get_specific_red_flag(flag_id):
     return IncidentsController.get_specific_red_flag(flag_id)
+
+@app.route("/api/v1/red-flags/<int:flag_id>", methods=["DELETE"])
+def delete_specific_red_flag(flag_id):
+    return IncidentsController.delete_specific_red_flag(flag_id)
