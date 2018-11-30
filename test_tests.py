@@ -135,4 +135,11 @@ class TestFlags(unittest.TestCase):
         reply = json.loads(resp.data.decode())
         self.assertTrue(reply)
         self.assertEqual(resp.status_code, 201)
+        
+    def test_get_specific_red_flag(self):
+        resp = app.test_client(self).get(
+            "api/v1/red-flags/1"
+        )
+        reply = json.loads(resp.data.decode())
+        self.assertTrue(reply)
 
