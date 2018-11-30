@@ -2,4 +2,12 @@
 omit = 
         iReporter/venv/*
         */venv/*
-        
+        */site-packages/nose/*
+        */__pycache__/*
+        *.pyc
+        */home/travis/virtualenv/*
+        */__init__.py 
+        api\controllers.py 
+        api\validation.py
+        api\models.py
+        run.py
