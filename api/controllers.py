@@ -1,4 +1,4 @@
-from api.models import users, Users, incidents, Incidents
+from .models import users, Users, incidents, Incidents
 from flask import jsonify, request
 from api.validation import Validating_string
 
