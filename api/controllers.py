@@ -95,7 +95,8 @@ class IncidentsController:
     def delete_specific_red_flag(flag_id):
         if len(Incidents.get_all_incidents()) == 0:
             return jsonify({
-                "message": "No incidents!"
+                "message": "No incidents!",
+                "status": 400
             }), 400
         for incident in Incidents.get_all_incidents():
             if incident["flag_id"] != flag_id:
