@@ -1,5 +1,15 @@
 import datetime
 
+class Users:
+    def __init__(self):
+        self.users = []
+
+    def get_all_users(self):
+        return self.users 
+
+    def add_user(self, user):
+        return self.users.append(user)
+
 class User:
     def __init__(self, firstname, lastname, othernames, email, password, username):
         self.firstname = firstname
@@ -10,8 +20,9 @@ class User:
         self.username = username
     
     def signup(self):
-        user = {
-            "user_id": len(Users.get_all_users(self)) + 1,
+        list_ = Users()
+        return {
+            # "user_id": len(list_.get_all_users()) + 1,
             "firstname": self.firstname,
             "lastname": self.lastname,
             "othernames": self.othernames,
@@ -20,16 +31,8 @@ class User:
             "username": self.username,
             "registered": datetime.date.today()
         }
+        
 
-class Users:
-    def __init__(self):
-        self.users = []
-
-    def get_all_users(self):
-        return self.users 
-
-    def add_user_user(self, user):
-        return self.users.append(user)
 
 
 

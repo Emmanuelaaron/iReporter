@@ -22,7 +22,6 @@ class UsersController:
                     "message": "All fields must be filled!"
                     }), 400
         
-
         for user in users_list.get_all_users():
             if user["username"] == username:
                 return jsonify({
@@ -33,11 +32,18 @@ class UsersController:
                     "message": "email already exists!"
                 })
         my_account = User(firstname, lastname, othernames, email, password, username)
-        users_list.add_user_user(my_account)
-        return jsonify ({
-            "message": "created"
-        })
+        if username in users_list.get_all_users():
+            return jsonify({
+                "message": "user there!"
+            })
+        my_account = my_account.signup()
+        my_account["users_id"] = len(users_list.get_all_users()) + 1
+        users_list.add_user(my_account)
 
+        return jsonify({
+            "message": "created",
+            "data": my_account
+        })
 # class IncidentsController:
 
 #     @staticmethod
