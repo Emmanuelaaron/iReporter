@@ -1,7 +1,8 @@
-from .models import users, Users, incidents, Incidents
+from .models import User, Users
 from flask import jsonify, request
 from api.validation import Validating_string
 
+users_list = Users()
 class UsersController:
 
     @staticmethod
@@ -22,7 +23,7 @@ class UsersController:
                     }), 400
         
 
-        for user in Users.get_all_users():
+        for user in users_list.get_all_users():
             if user["username"] == username:
                 return jsonify({
                     "message": "username already exists! Choose another one"
@@ -31,79 +32,82 @@ class UsersController:
                 return jsonify({
                     "message": "email already exists!"
                 })
-        my_account = Users(firstname, lastname, othernames, email, password, username)
-        return jsonify (my_account.signup()), 201
+        my_account = User(firstname, lastname, othernames, email, password, username)
+        users_list.add_user_user(my_account)
+        return jsonify ({
+            "message": "created"
+        })
 
-class IncidentsController:
+# class IncidentsController:
 
-    @staticmethod
-    def create_red_flag():
-        data = request.get_json()
-        incidenceType = data.get("incidenceType")
-        location = data.get("location")
-        comment = data.get("comment")
-        user_id = data.get("user_id")
+#     @staticmethod
+#     def create_red_flag():
+#         data = request.get_json()
+#         incidenceType = data.get("incidenceType")
+#         location = data.get("location")
+#         comment = data.get("comment")
+#         user_id = data.get("user_id")
 
-        incidents_details = [incidenceType, location, comment, user_id]
-        for incident in incidents_details:
-            if type(incident) is str:
-                if Validating_string.is_space(incident) or not Validating_string.characters(incident):
-                    return jsonify({
-                        "message": "All fields must be filled!"
-                        }), 400
-        if len(Users.get_all_users()) == 0:
-            return jsonify({
-                "message": "user not found!"
-            }), 400
-        for incident in incidents:
-            if incident["incidenceType"] == incidenceType and incident["location"] == location:
-                return jsonify({
-                    "message": "Incidence already captured!"
-                }), 400
+#         incidents_details = [incidenceType, location, comment, user_id]
+#         for incident in incidents_details:
+#             if type(incident) is str:
+#                 if Validating_string.is_space(incident) or not Validating_string.characters(incident):
+#                     return jsonify({
+#                         "message": "All fields must be filled!"
+#                         }), 400
+#         if len(Users.get_all_users()) == 0:
+#             return jsonify({
+#                 "message": "user not found!"
+#             }), 400
+#         for incident in incidents:
+#             if incident["incidenceType"] == incidenceType and incident["location"] == location:
+#                 return jsonify({
+#                     "message": "Incidence already captured!"
+#                 }), 400
 
-        for user in Users.get_all_users():
-            if user["user_id"] != user_id:
-                return jsonify({
-                    "message": "invalid user id"
-                }), 400
-        my_incident = Incidents(incidenceType, location, comment)
-        message = my_incident.create_incidence(user_id)
-        return jsonify(message), 201
+#         for user in Users.get_all_users():
+#             if user["user_id"] != user_id:
+#                 return jsonify({
+#                     "message": "invalid user id"
+#                 }), 400
+#         my_incident = Incidents(incidenceType, location, comment)
+#         message = my_incident.create_incidence(user_id)
+#         return jsonify(message), 201
 
-    @staticmethod
-    def get_all_red_flags():
-        if len(Incidents.get_all_incidents()) == 0:
-            return jsonify({
-                "message": "No incidents so far!"
-            }), 201
-        return jsonify(Incidents.get_all_incidents()), 201
+#     @staticmethod
+#     def get_all_red_flags():
+#         if len(Incidents.get_all_incidents()) == 0:
+#             return jsonify({
+#                 "message": "No incidents so far!"
+#             }), 201
+#         return jsonify(Incidents.get_all_incidents()), 201
 
-    @staticmethod
-    def get_specific_red_flag(flag_id):
-        if len(Incidents.get_all_incidents()) == 0:
-            return jsonify({
-                "message": "No incidents!"
-            })
-        for incident in Incidents.get_all_incidents():
-            if incident["flag_id"] != flag_id:
-                return jsonify({
-                    "message": "Flag id does not exist!"
-                }), 400
-        return jsonify(incident), 201
+#     @staticmethod
+#     def get_specific_red_flag(flag_id):
+#         if len(Incidents.get_all_incidents()) == 0:
+#             return jsonify({
+#                 "message": "No incidents!"
+#             })
+#         for incident in Incidents.get_all_incidents():
+#             if incident["flag_id"] != flag_id:
+#                 return jsonify({
+#                     "message": "Flag id does not exist!"
+#                 }), 400
+#         return jsonify(incident), 201
 
-    @staticmethod
-    def delete_specific_red_flag(flag_id):
-        if len(Incidents.get_all_incidents()) == 0:
-            return jsonify({
-                "message": "No incidents!",
-                "status": 400
-            }), 400
-        for incident in Incidents.get_all_incidents():
-            if incident["flag_id"] != flag_id:
-                return jsonify({
-                    "message": "Flag id does not exist!"
-                }), 400
-            Incidents.get_all_incidents().remove(incident)
-            return jsonify({
-                "message": "Sucessfully deleted!"
-            }), 201
+#     @staticmethod
+#     def delete_specific_red_flag(flag_id):
+#         if len(Incidents.get_all_incidents()) == 0:
+#             return jsonify({
+#                 "message": "No incidents!",
+#                 "status": 400
+#             }), 400
+#         for incident in Incidents.get_all_incidents():
+#             if incident["flag_id"] != flag_id:
+#                 return jsonify({
+#                     "message": "Flag id does not exist!"
+#                 }), 400
+#             Incidents.get_all_incidents().remove(incident)
+#             return jsonify({
+#                 "message": "Sucessfully deleted!"
+#             }), 201
