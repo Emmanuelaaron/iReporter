@@ -34,6 +34,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(reply["data"]['email'], 'ngiya@gams.com')
         self.assertEqual(reply["data"]["lastname"], "ngiya")
         self.assertEqual(reply["data"]["username"], "dojo")
+        self.assertEqual(reply["data"]["firstname"], "Donald")
         self.assertEqual(resp.status_code, 201)
 
     def test_signupuser_without_a_field(self):
@@ -134,25 +135,25 @@ class TestFlags(unittest.TestCase):
         self.assertIn(reply["message"], "All fields must be filled!")
         self.assertEqual(resp.status_code, 400)
     
-    # def test_get_all_red_flags(self):
-    #     resp = app.test_client(self).get(
-    #         "api/v1/red-flags"
-    #     )
-    #     reply = json.loads(resp.data.decode())
-    #     self.assertTrue(reply)
-    #     self.assertEqual(resp.status_code, 201)
+    def test_get_all_red_flags(self):
+        resp = app.test_client(self).get(
+            "api/v1/red-flags"
+        )
+        reply = json.loads(resp.data.decode())
+        self.assertTrue(reply)
+        self.assertEqual(resp.status_code, 200)
         
-    # def test_get_specific_red_flag(self):
-    #     resp = app.test_client(self).get(
-    #         "api/v1/red-flags/1"
-    #     )
-    #     reply = json.loads(resp.data.decode())
-    #     self.assertTrue(reply)
-    #     self.assertEqual(resp.status_code, 200)
+    def test_get_specific_red_flag(self):
+        resp = app.test_client(self).get(
+            "api/v1/red-flags/1"
+        )
+        reply = json.loads(resp.data.decode())
+        self.assertTrue(reply)
+        self.assertEqual(resp.status_code, 400)
 
-    # def test_delete_specific_red_flag(self):
-    #     resp = app.test_client(self).delete(
-    #         "api/v1/red-flags/1"
-    #     )
-    #     reply = json.loads(resp.data.decode())
-    #     self.assertTrue(reply)
+    def test_delete_specific_red_flag(self):
+        resp = app.test_client(self).delete(
+            "api/v1/red-flags/1"
+        )
+        reply = json.loads(resp.data.decode())
+        self.assertTrue(reply)
