@@ -2,6 +2,7 @@ import unittest
 from api import*
 from api.views import app
 from flask import json
+import datetime
 # from api.models import Users
 
 class TestUser(unittest.TestCase):
@@ -27,7 +28,13 @@ class TestUser(unittest.TestCase):
 
         reply = json.loads(resp.data.decode())
 
-        self.assertIn("You've, signed up sucessfully", reply)
+        self.assertTrue(reply)
+        self.assertEqual(reply["message"], "You've signed up sucessfully!")
+        self.assertIn("You've signed up sucessfully!", str(reply))
+        self.assertEqual(reply["data"]['email'], 'ngiya@gams.com')
+        self.assertEqual(reply["data"]["lastname"], "ngiya")
+        self.assertEqual(reply["data"]["username"], "dojo")
+        self.assertEqual(reply["data"]["firstname"], "Donald")
         self.assertEqual(resp.status_code, 201)
 
     def test_signupuser_without_a_field(self):
@@ -73,7 +80,7 @@ class TestFlags(unittest.TestCase):
 
         reply = json.loads(resp.data.decode())
 
-        self.assertIn("You've, signed up sucessfully", reply)
+        self.assertIn("You've signed up sucessfully!", str(reply))
         self.assertEqual(resp.status_code, 201)
 
         incident = dict(
@@ -134,7 +141,7 @@ class TestFlags(unittest.TestCase):
         )
         reply = json.loads(resp.data.decode())
         self.assertTrue(reply)
-        self.assertEqual(resp.status_code, 201)
+        self.assertEqual(resp.status_code, 200)
         
     def test_get_specific_red_flag(self):
         resp = app.test_client(self).get(
@@ -142,7 +149,7 @@ class TestFlags(unittest.TestCase):
         )
         reply = json.loads(resp.data.decode())
         self.assertTrue(reply)
-        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.status_code, 400)
 
     def test_delete_specific_red_flag(self):
         resp = app.test_client(self).delete(

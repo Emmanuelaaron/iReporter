@@ -1,5 +1,15 @@
 import datetime
 
+class Users:
+    def __init__(self):
+        self.users = []
+
+    def get_all_users(self):
+        return self.users 
+
+    def add_user(self, user):
+        return self.users.append(user)
+
 class User:
     def __init__(self, firstname, lastname, othernames, email, password, username):
         self.firstname = firstname
@@ -10,8 +20,7 @@ class User:
         self.username = username
     
     def signup(self):
-        user = {
-            "user_id": len(Users.get_all_users(self)) + 1,
+        return {
             "firstname": self.firstname,
             "lastname": self.lastname,
             "othernames": self.othernames,
@@ -20,40 +29,31 @@ class User:
             "username": self.username,
             "registered": datetime.date.today()
         }
+        
 
-class Users:
+class Incidents:
     def __init__(self):
-        self.users = []
+        self.incidents = []
 
-    def get_all_users(self):
-        return self.users 
+    def get_all_incidents(self):
+        return self .incidents
 
-    def add_user_user(self, user):
-        return self.users.append(user)
+    def add_incident(self, incident):
+        return self.incidents.append(incident)
 
 
+class Incident:
+    def __init__(self, incidenceType, location, comment):
+        self.incidenceType = incidenceType
+        self.location = location
+        self.comment = comment
 
-# class Incidents:
-#     def __init__(self, incidenceType, location, comment):
-#         self.incidenceType = incidenceType
-#         self.location = location
-#         self.comment = comment
 
-#     @staticmethod
-#     def get_all_incidents():
-#         return incidents
-
-#     def create_incidence(self, user_id):
-#         for user in users:
-#             if user["user_id"] == user_id:
-#                 incident = {
-#                     "flag_id": len(incidents) + 1,
-#                     "createdOn": datetime.date.today(),
-#                     "incidenceType": self.incidenceType,
-#                     "location": self.location,
-#                     "status": "draft",
-#                     "comment": self.comment,
-#                     "createdby": user_id
-#                 }
-#                 incidents.append(incident)
-#             return incident
+    def create_incidence(self):
+        return {
+            "createdOn": datetime.date.today(),
+            "incidenceType": self.incidenceType,
+            "location": self.location,
+            "status": "draft",
+            "comment": self.comment,
+        }
