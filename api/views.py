@@ -1,5 +1,5 @@
 from flask import Flask
-from .controllers import UsersController
+from .controllers import UsersController, IncidentsController
 
 my_user = UsersController()
 app = Flask(__name__)
@@ -12,9 +12,9 @@ def index():
 def signup_user():
     return my_user.signupUser()
 
-# @app.route("/api/v1/red-flags", methods=["POST"])
-# def create_red():
-#     return IncidentsController.create_red_flag()
+@app.route("/api/v1/red-flags", methods=["POST"])
+def create_red():
+    return IncidentsController.create_red_flag()
 
 # @app.route("/api/v1/red-flags")
 # def get_all_flags():
