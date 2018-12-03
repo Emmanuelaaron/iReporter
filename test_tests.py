@@ -157,3 +157,4 @@ class TestFlags(unittest.TestCase):
         )
         reply = json.loads(resp.data.decode())
         self.assertTrue(reply)
+        self.assertEqual(resp.status_code, 400)

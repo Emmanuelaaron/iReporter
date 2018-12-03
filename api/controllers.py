@@ -140,4 +140,4 @@ class IncidentsController:
             incidents_list.get_all_incidents().remove(incident)
             return jsonify({
                 "message": "Sucessfully deleted!"
-            }), 201
+            }), 200
