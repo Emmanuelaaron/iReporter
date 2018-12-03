@@ -8,9 +8,9 @@ script:
   # - nosetests --with-coverage
   - pytest --cov
   - coverage
-  - coverage3 report
-  - coveralls
-after_success:
-  - coveralls
-  - coverage
-  - coverage3 report
+  # - coverage3 report
+  # - coveralls
+# after_success:
+#   - coveralls
+#   - coverage
+#   - coverage3 report
