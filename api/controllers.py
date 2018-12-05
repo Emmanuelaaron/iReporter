@@ -56,7 +56,8 @@ class IncidentsController:
         incidents_details = [incidenceType, location, comment, user_id]
         for incident in incidents_details:
             if type(incident) is str:
-                if Validating_string.is_space(incident) or not Validating_string.characters(incident):
+                if not Validating_string.characters(incident) or\
+                Validating_string.is_space(incident):
                     return jsonify({
                         "status": 400,
                         "message": "All fields must be filled!"
