@@ -94,18 +94,18 @@ class IncidentsController:
 
     @staticmethod
     def get_all_red_flags():
-        if len(incidents_list.get_all_incidents()) == 0:
+        if Validating_string.characters(incidents_list.get_all_incidents()):
             return jsonify({
                 "status": 200,
-                "message": "No incidents so far!"
-            }), 200
+                "data": incidents_list.get_all_incidents()
+            })
         return jsonify({
-            "status": 201,
-            "data": incidents_list.get_all_incidents()
+            "status": 200,
+            "message": "No incidents so far!"
         })
 
     def get_specific_red_flag(self, flag_id):
-        if len(incidents_list.get_all_incidents()) == 0:
+        if not Validating_string.characters(incidents_list.get_all_incidents()):
             return jsonify({
                 "status": 400,
                 "message": "No incidents!"
@@ -123,7 +123,7 @@ class IncidentsController:
 
     @staticmethod
     def delete_specific_red_flag(flag_id):
-        if len(incidents_list.get_all_incidents()) == 0:
+        if not Validating_string.characters(incidents_list.get_all_incidents()):
             return jsonify({
                 "message": "No incidents!",
                 "status": 400
