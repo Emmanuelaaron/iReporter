@@ -25,15 +25,11 @@ class UsersController:
                     }), 400
         
         for user in users_list.get_all_users():
-            if user["username"] == username:
+            if user["username"] == username or\
+            user["email"] == email:
                 return jsonify({
                     "status": 200,
-                    "message": "username already exists! Choose another one"
-                }), 200
-            if user["email"] == email:
-                return jsonify({
-                    "status": 201,
-                    "message": "email already exists!"
+                    "message": "username or already exists! Choose another one"
                 }), 200
         my_account = User(firstname, lastname, othernames, email, password, username)
         my_account = my_account.signup()
