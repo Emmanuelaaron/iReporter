@@ -299,3 +299,9 @@ form.search_record input[type="text"] {
     }
     
 }
+
+.red_flag select {
+    width: 150px;
+    margin-left: 29px;
+
+}
