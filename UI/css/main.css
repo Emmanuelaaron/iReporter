@@ -254,11 +254,8 @@ h2 {
 
 .users_records {
     background-color: rgb(202, 114, 114, 0.4);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    width: 80%;
     margin-top: 40px;
-    flex-wrap: wrap;
     color: rgb(183, 224, 224);
 
 
@@ -304,4 +301,8 @@ form.search_record input[type="text"] {
     width: 150px;
     margin-left: 29px;
 
+}
+
+.users_records table {
+    margin-top:  30px;
 }
