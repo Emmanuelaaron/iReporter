@@ -141,3 +141,6 @@ class IncidentsController:
             return jsonify({
                 "message": "Sucessfully deleted!"
             }), 201
+
+    def edit(self):
+        pass
