@@ -87,7 +87,7 @@ class IncidentsController:
                         "id": my_incident["id"],
                         "message": "created red flag record"
                     }]
-                })
+                }), 201
         return jsonify({
             "status": 400,
             "message": "invalid user id"

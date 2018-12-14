@@ -98,7 +98,7 @@ class TestFlags(unittest.TestCase):
         reply = json.loads(resp.data.decode())
 
         self.assertTrue(reply)
-        self.assertEqual(resp.status_code, 400)
+        self.assertEqual(resp.status_code, 201)
 
 
     def test_create_red_flag_error(self):
@@ -116,7 +116,7 @@ class TestFlags(unittest.TestCase):
         )
         reply = json.loads(resp.data.decode())
 
-        self.assertEqual(reply["message"], "invalid user id")
+        self.assertEqual(reply["message"], "Incidence already captured!")
         self.assertEqual(resp.status_code, 400)
     
     def test_create_red_flag_with_blank_fieled(self):
@@ -157,4 +157,4 @@ class TestFlags(unittest.TestCase):
         )
         reply = json.loads(resp.data.decode())
         self.assertTrue(reply)
-        self.assertEqual(resp.status_code, 400)
+        self.assertEqual(resp.status_code, 200)
