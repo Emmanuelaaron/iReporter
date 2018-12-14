@@ -75,23 +75,23 @@ class IncidentsController:
                 }), 400
 
         for user in users_list.get_all_users():
-            if user["users_id"] != user_id:
+            if user["users_id"] == user_id:
+                my_incident = Incident(incidenceType, location, comment)
+                my_incident = my_incident.create_incidence()
+                my_incident["createdby"] = user_id
+                my_incident["id"] = len(incidents_list.get_all_incidents()) + 1
+                incidents_list.add_incident(my_incident)
                 return jsonify({
-                    "status": 400,
-                    "message": "invalid user id"
-                }), 400
-        my_incident = Incident(incidenceType, location, comment)
-        my_incident = my_incident.create_incidence()
-        my_incident["createdby"] = user_id
-        my_incident["id"] = len(incidents_list.get_all_incidents()) + 1
-        incidents_list.add_incident(my_incident)
+                    "status": 201,
+                    "data": [{
+                        "id": my_incident["id"],
+                        "message": "created red flag record"
+                    }]
+                })
         return jsonify({
-            "status": 201,
-            "data": [{
-                "id": my_incident["id"],
-                "message": "created red flag record"
-            }]
-        })
+            "status": 400,
+            "message": "invalid user id"
+        }), 400
 
     @staticmethod
     def get_all_red_flags():
