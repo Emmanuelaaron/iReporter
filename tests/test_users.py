@@ -55,4 +55,3 @@ class TestUser(unittest.TestCase):
         self.assertEqual(reply["message"], "All fields must be filled!")
         self.assertEqual(resp.status_code, 400)
         
-    
