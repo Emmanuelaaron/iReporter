@@ -1,6 +1,6 @@
 import unittest
-from api import*
-from api.views import app
+# from api import*
+from api import app
 from flask import json
 import datetime
 # from api.models import Users
