@@ -21,3 +21,11 @@ def get_specific_red_flag(flag_id):
 @incidents_blueprint.route("/red-flags/<int:flag_id>", methods=["DELETE"])
 def delete_specific_red_flag(flag_id):
     return IncidentsController.delete_specific_red_flag(flag_id)
+
+@incidents_blueprint.route("/red-flags/<int:flag_id>/comment", methods=["PATCH"])
+def edit_comment_specific_flag(flag_id):
+    return IncidentsController.edit_comment_specific_red_flag(flag_id)
+
+@incidents_blueprint.route("/red-flags/<int:flag_id>/location", methods=["PATCH"])
+def edit_location_specific_flag(flag_id):
+    return IncidentsController.edit_location_specific_red_flag(flag_id)
