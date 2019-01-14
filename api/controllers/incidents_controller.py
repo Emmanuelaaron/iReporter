@@ -102,3 +102,43 @@ class IncidentsController:
             return jsonify({
                 "message": "Sucessfully deleted!"
             }), 200
+
+    @staticmethod
+    def edit_comment_specific_red_flag(flag_id):
+        if not Validating_string.characters(incidents_list.get_all_incidents()):
+            return jsonify({
+                "message": "No incidents!",
+                "status": 400
+            }), 400
+        for incident in incidents_list.get_all_incidents():
+            if incident["id"] != flag_id:
+                return jsonify({
+                    "message": "Flag id does not exist!"
+                }), 400
+            print (incident["comment"])
+            comment = request.get_json().get("comment")
+            new_comment = comment
+            incident["comment"] = new_comment
+            return jsonify({
+                "message": "You've sucessfully edited the comment!"
+            }), 200
+
+    @staticmethod
+    def edit_location_specific_red_flag(flag_id):
+        if not Validating_string.characters(incidents_list.get_all_incidents()):
+            return jsonify({
+                "message": "No incidents!",
+                "status": 400
+            }), 400
+        for incident in incidents_list.get_all_incidents():
+            if incident["id"] != flag_id:
+                return jsonify({
+                    "message": "Flag id does not exist!"
+                }), 400
+            print (incident["location"])
+            location = request.get_json().get("location")
+            new_location = location
+            incident["location"] = new_location
+            return jsonify({
+                "message": "You've sucessfully edited the comment!"
+            }), 200
