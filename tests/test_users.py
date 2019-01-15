@@ -54,4 +54,9 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(reply["message"], "All fields must be filled!")
         self.assertEqual(resp.status_code, 400)
-        
+
+    def test_more_tests(self):
+        resp = app.test_client(self).get(
+            "api/v1"
+        )
+        self.assertEqual(resp.status_code, 301)
