@@ -115,7 +115,6 @@ class IncidentsController:
                 return jsonify({
                     "message": "Flag id does not exist!"
                 }), 400
-            print (incident["comment"])
             comment = request.get_json().get("comment")
             new_comment = comment
             incident["comment"] = new_comment
@@ -125,7 +124,7 @@ class IncidentsController:
 
     @staticmethod
     def edit_location_specific_red_flag(flag_id):
-        if not Validating_string.characters(incidents_list.get_all_incidents()):
+        if not len(incidents_list.get_all_incidents() > 1):
             return jsonify({
                 "message": "No incidents!",
                 "status": 400
