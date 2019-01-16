@@ -1,6 +1,6 @@
 from api.models.users_model import User, Users
 from flask import jsonify, request
-from api.validation import Validating_string
+from api.validation import Validating_string, email_validator
 
 users_list = Users()
 class UsersController:
@@ -15,6 +15,10 @@ class UsersController:
         password = data.get("password")
         username = data.get("username")
 
+        if not email_validator.validate_email(email):
+            return jsonify({
+                "message": "Invalid email"
+            })
         user_details = [firstname, lastname, email, password, username]
         for detail in user_details:
             if Validating_string.is_space(detail) or not Validating_string.characters(detail):
