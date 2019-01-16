@@ -94,7 +94,7 @@ class TestFlags(unittest.TestCase):
         )
         reply = json.loads(resp.data.decode())
         self.assertTrue(reply)
-        self.assertEqual(resp.status_code, 400)
+        self.assertEqual(resp.status_code, 200)
 
     def test_delete_specific_red_flag(self):
         resp = app.test_client(self).delete(
@@ -103,3 +103,49 @@ class TestFlags(unittest.TestCase):
         reply = json.loads(resp.data.decode())
         self.assertTrue(reply)
         self.assertEqual(resp.status_code, 200)
+
+    
+    def test_edit_location_specific_red_flag(self):
+        user = dict(
+            firstname="bebcleck",
+            lastname="ivan",
+            othernames="ivanoo",
+            email="ivanoo@gam.com",
+            password="ghgdhgd",
+            username="nocloy"
+        )
+        app.test_client(self).post(
+                "api/v1/signup", 
+                content_type="application/json",
+                data=json.dumps(user)
+        )
+
+        incident = dict(
+        incidenceType = "Red flag",
+        location = "756.2, 670.56",
+        comment = "corruption at UPDF",
+        user_id = 1
+
+        )
+
+        incident_edit = dict(
+            comment = "corrupetion at Uganda police"
+        )
+        app.test_client(self).post(
+            "api/v1/red-flags",
+            content_type="application/json",
+            data=json.dumps(incident)
+        )
+
+        resp = app.test_client(self).patch(
+            "api/v1/red-flags/1/comment",
+            content_type = "application/json",
+            data = json.dumps(incident_edit)
+        )
+
+        reply = json.loads(resp.data.decode())
+
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(reply["message"], "You've sucessfully edited the comment!")
+        self.assertTrue(reply)
+
